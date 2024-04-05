@@ -1,9 +1,10 @@
-const loginEmail = document.getElementById('loginEmail');
-const loginPassword = document.getElementById('loginPassword');
-const loginBtn = document.getElementById('loginBtn');
+const loginUsername = document.getElementById('username-login').value.trim();
+const loginPassword = document.getElementById('password-login').value.trim();
+const loginBtn = document.getElementById('submit-logic');
+//above id names have been pulled from login.handlebars
 
-const signupEmail = document.getElementById('signupEmail');
-const signupPassword = document.getElementById('signupPassword');
+const signupUsername = document.getElementById('signupEmail').value.trim();
+const signupPassword = document.getElementById('signupPassword').value.trim();
 const signupBtn = document.getElementById('signupBtn');
 
 
@@ -12,10 +13,10 @@ const signupBtn = document.getElementById('signupBtn');
 const loginForm = async (event) => {
     event.preventDefault();
 
-    if (loginEmail && loginPassword) {
+    if (loginUsername && loginPassword) {
         const response = await fetch ('/api/users/login', {
             method: 'POST',
-            body: JSON.stringify({ loginEmail, loginPassword}),
+            body: JSON.stringify({ loginUsername, loginPassword}),
             headers: { 'Content-Type': ''},
         });
     }
@@ -31,10 +32,10 @@ const loginForm = async (event) => {
 
 const signupForm = async (event) => {
     event.preventDefault();
-    if (signupEmail && signupPassword) {
+    if (signupUsername && signupPassword) {
         const response = await fetch ('/api/users/login', {
             method: 'POST',
-            body: JSON.stringify({ signupEmail, signupPassword}),
+            body: JSON.stringify({ signupUsername, signupPassword}),
             headers: { 'Content-Type': ''},
         });
     }
