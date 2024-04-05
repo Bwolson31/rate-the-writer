@@ -1,5 +1,14 @@
 <script id="login-template" type="text/x-handlebars-template">
-    <!-- Your Handlebars template code here -->
+    <!-- Handlebars template code for index-->
+    <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if loggedIn}}
+            <a href="/logout">Logout</a> |
+            <button class="no-button" id="logout">Logout</button>
+        {{else}}
+            <a href="/login">Login</a>
+        {{/if}}
+    </nav>
     <div class="container-fluid text-center">
         <div class="row align-items-start">
             <div class="col justify-content-center align-items-center">
