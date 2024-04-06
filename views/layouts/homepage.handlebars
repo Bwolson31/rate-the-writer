@@ -7,3 +7,8 @@
     <h5>{{post.title}}</h5> {{!-- Displaying the post title --}} 
     <p class="text-end" id="date">posted by: {{post.user.user_name}} , on: {{post.date}} </p> {{!-- Displaying the username and posting date --}} 
   </div>
+
+  <div class="card-body">
+    <!-- Post body -->
+    <p class="card-text text-start">{{post.body}}</p> {{!-- Displaying the post body --}} 
+    <h5 class="text-secondary text-start">comments {{post.comments.length}}</h5> {{!-- Displaying the number of comments --}} 
