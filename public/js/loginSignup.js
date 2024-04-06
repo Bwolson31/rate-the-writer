@@ -3,9 +3,9 @@ const loginPassword = document.getElementById('password-login').value.trim();
 const loginBtn = document.getElementById('submit-logic');
 //above id names have been pulled from login.handlebars
 
-const signupUsername = document.getElementById('signupEmail').value.trim();
-const signupPassword = document.getElementById('signupPassword').value.trim();
-const signupBtn = document.getElementById('signupBtn');
+const signupUsername = document.getElementById('username-signup').value.trim();
+const signupPassword = document.getElementById('password-signup').value.trim();
+const signupBtn = document.getElementById('submit-signup');
 
 
 //Note: all variable names, function names, etc are generics and can be replaced
