@@ -11,4 +11,8 @@
   <div class="card-body">
     <!-- Post body -->
     <p class="card-text text-start">{{post.body}}</p> {{!-- Displaying the post body --}} 
-    <h5 class="text-secondary text-start">comments {{post.comments.length}}</h5> {{!-- Displaying the number of comments --}} 
+    <h5 class="text-secondary text-start">comments {{post.comments.length}}</h5> {{!-- Displaying the number of comments --}}
+
+     {{#if isCreator}}
+    <div class="star-rating" data-rating="{{post.rating}}"></div> {{!-- Display star rating input if user is post creator --}}
+    {{/if}}
