@@ -8,7 +8,7 @@ const authRoutes = require('./authRoutes');
 router.get('/', (req, res) => {
     res.send('Welcome to the Book Forum!'); 
   });
-  
+router.use('/users', authRoutes);
 // Use individual route files
 router.use('/auth', authRoutes);
 // Possibly add more route usage here 

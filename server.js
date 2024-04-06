@@ -1,9 +1,9 @@
 const express = require('express');
 const session = require('express-session');
 const routes = require('./routes');
-const exphbs = require('express-handlebars');
+const { engine } = require('express-handlebars');
 const sequelize = require('./config/connection');
-const SequelizeStore = require('connect-session-sequelize')
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const userroute = require('./routes/authRoutes');
 (session.Store);
 
@@ -26,8 +26,7 @@ const sess = {
   }),
 }
 
-
-app.engine('handlebars', exphbs.engine);
+app.engine('handlebars', engine({ defaultLayout: 'index' }));
 app.set('view engine', 'handlebars');
 app.use('/users', userroute);
 
@@ -35,8 +34,12 @@ app.use(session(sess));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
 app.use(routes);
+app.get('/', (req, res) => {
+ res.render('homepage');
+});
 
 // Sync Sequelize models with the database
 sequelize.sync({ force: false }).then(() => {

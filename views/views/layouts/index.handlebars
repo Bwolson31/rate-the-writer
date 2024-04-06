@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rate The Writer</title>
+  <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to Rate-The-Writer</h1>
+  </header>
+  <nav>
+    <a href="/">Home</a>
+    {{#if loggedIn}}
+    <form action="/auth/logout" method="POST">
+      <button type="submit" class="btn-no-style">Logout</button>
+    </form>
+    {{else}}
+    <a href="/auth/login">Login</a>
+    <a href="/auth/signup">Sign Up</a>
+    {{/if}}
+  </nav>
+  <main>
+    <aside>
+      <h2>Check out the current feed!</h2>
+    </aside>
+    <section class="gallery">
+      {{{body}}}
+    </section>
+  </main>
+  <footer>
+  </footer>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  {{#if loggedIn}}
+  <script src="addjsscript"></script>
+  {{/if}}
+  <script src="addjava"></script> 
+</body>
+
+
+</html>
