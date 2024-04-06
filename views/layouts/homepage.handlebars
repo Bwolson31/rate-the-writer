@@ -1,0 +1,9 @@
+{{#each posts as |post|}}
+<!-- Iterate over each post -->
+<div class="card my-4" style="box-shadow: 10px 10px 0px rgb(6, 122, 255)" data-post-id="{{post.id}}" id="post-card">
+  <!-- Card for each post -->
+  <div class="card-header bg-primary text-light d-flex justify-content-between">
+    <!-- Post header -->
+    <h5>{{post.title}}</h5> {{!-- Displaying the post title --}} 
+    <p class="text-end" id="date">posted by: {{post.user.user_name}} , on: {{post.date}} </p> {{!-- Displaying the username and posting date --}} 
+  </div>
