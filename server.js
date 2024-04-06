@@ -12,7 +12,6 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-  // TODO: logic for sess
   secret: 'hash here?',
   cookie: {
     httpOnly: true,
@@ -26,7 +25,7 @@ const sess = {
   }),
 }
 
-// TODO: logic for handlebars
+
 app.engine('handlebars', exphbs.engine);
 app.set('view engine', 'handlebars');
 
