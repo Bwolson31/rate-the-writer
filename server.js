@@ -4,6 +4,7 @@ const routes = require('./routes');
 const exphbs = require('express-handlebars');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')
+const userroute = require('./routes/authRoutes');
 (session.Store);
 
 
@@ -28,6 +29,7 @@ const sess = {
 
 app.engine('handlebars', exphbs.engine);
 app.set('view engine', 'handlebars');
+app.use('/users', userroute);
 
 app.use(session(sess));
 
