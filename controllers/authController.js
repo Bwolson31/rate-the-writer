@@ -15,7 +15,7 @@ const loginUser = async (req, res) => {
    const user = await User.findOne( { email, password });
 
 if (user) {
-    req.session.userId = user.id;
+    req.session.user_id = user.id;
     res.redirect('/homepage'); 
 } else {
     res.render('login', {error: 'Invalid email or password'})

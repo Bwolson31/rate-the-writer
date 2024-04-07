@@ -1,12 +1,12 @@
 [
     {
       "content": "First post of the application!",
-      "userid": 2,
+      "user_id": 2,
       "postid": 1
     },
     {
       "content": "Hi, welcome to Rate The Writer",
-      "userid": 1,
+      "user_id": 1,
       "postid": 2
     }
   ]

@@ -1,6 +1,6 @@
 const loginUsername = document.getElementById('username-login').value.trim();
 const loginPassword = document.getElementById('password-login').value.trim();
-const loginBtn = document.getElementById('submit-logic');
+//const loginBtn = document.getElementById('submit-login');
 //above id names have been pulled from login.handlebars
 
 const signupUsername = document.getElementById('username-signup').value.trim();
@@ -70,6 +70,15 @@ const logout = async () => {
 //   .querySelector('.signup-form')
 //   .addEventListener('submit', signupForm);
 
-signupBtn.addEventListener('click', signupForm);
-loginBtn.addEventListener('click', loginForm);
-logoutBtn.addEventListener('click', logout);
+//signupBtn.addEventListener('click', signupForm);
+//loginBtn.addEventListener('click', loginForm);
+//logoutBtn.addEventListener('click', logout);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const loginBtn = document.getElementById('submit-login');
+    if (loginBtn) {
+      loginBtn.addEventListener('click', loginForm);
+    } else {
+      console.error('Login button not found');
+    }
+  });
