@@ -15,22 +15,17 @@
   <nav>
     <a href="/">Home</a>
     {{#if loggedIn}}
-    <form action="/auth/logout" method="POST">
+    <form action="/logout" method="POST">
       <button type="submit" class="btn-no-style">Logout</button>
     </form>
     {{else}}
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Sign Up</a>
+    <a href="login">Login</a>
+    <a href="signup">Sign Up</a>
     {{/if}}
   </nav>
   <main>
-    <aside>
-      <h2>Check out the current feed!</h2>
-    </aside>
-    <section class="gallery">
+
       {{{body}}}
-    </section>
-        {{> homepage}} <!-- Include homepage.handlebars -->
   </main>
   <footer>
   </footer>

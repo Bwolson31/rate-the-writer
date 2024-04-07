@@ -38,9 +38,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.use(routes);
-app.get('/', (req, res) => {
- res.render('homepage');
-});
+// app.get('/', (req, res) => {
+//  res.render('homepage');
+// });
 
 // Sync Sequelize models with the database
 sequelize.sync({ force: false }).then(() => {

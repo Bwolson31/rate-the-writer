@@ -1,5 +1,4 @@
-const User = require('../models/User');
-
+const { User } = require('../models');
 // Controller function to render the login/signup page
 const renderLoginPage = (req, res) => {
     res.render('login'); 
