@@ -8,5 +8,16 @@
     "express-session": "^1.18.0",
     "mysql2": "^3.9.3",
     "sequelize": "^6.37.2"
-  }
+  },
+  "scripts": {
+    "start": "node server.js",
+    "seeds": "node seeds.js"
+  },
+  "name": "rate-the-writer",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
 }

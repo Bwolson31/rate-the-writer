@@ -1,0 +1,41 @@
+<div class="card my-4" style="box-shadow: 10px 10px 0px rgb(6, 122, 255)" data-post-id="{{id}}" id="post-card">
+    <!-- Card for each post -->
+    <div class="card-header bg-primary text-light d-flex justify-content-between">
+        <!-- Post header -->
+        <h5>{{title}}</h5> 
+        <p class="text-end" id="date">posted by: {{user.user_name}} , on: {{date}} </p> 
+    </div>
+
+    <div class="card-body">
+        <!-- Post body -->
+        <p class="card-text text-start">{{body}}</p> 
+        <h5 class="text-secondary text-start">comments {{comments.length}}</h5> 
+
+        <!-- Star rating -->
+        {{#if isCreator}}
+        <div class="star-rating" data-rating="{{rating}}"></div> 
+        <p>Rate the Author:</p> 
+        {{/if}}
+
+        <!-- Comment iteration -->
+        {{#each comments as |comment|}} 
+        <div class="accordion" id="accordionExample">
+            <!-- Accordion for each comment -->
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{comment.id}}" aria-expanded="true" aria-controls="collapseOne">
+                        comment
+                    </button>
+                </h2>
+                <div id="collapse{{comment.id}}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <!-- Comment content -->
+                        {{comment.body}} 
+                        <p id="comment-user">user# {{comment.user_id}} | {{comment.date}}</p> 
+                    </div> 
+                </div>
+            </div>
+        </div>
+        {{/each}} <!-- End of comment iteration -->
+    </div>
+</div>

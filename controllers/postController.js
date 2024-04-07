@@ -1,5 +1,5 @@
 // Import necessary modules and models
-const Post = require('../models/Post');
+const { Post } = require('../models');
 
 // Controller function to create a new post
 const createPost = async (req, res) => {

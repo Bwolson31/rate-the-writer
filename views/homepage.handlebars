@@ -1,46 +1,10 @@
+    <aside>
+      <h2>Check out the current feed!</h2>
+    </aside>
+    <section class="gallery">
+
 {{#each posts as |post|}}
 <!-- Iterate over each post -->
-<div class="card my-4" style="box-shadow: 10px 10px 0px rgb(6, 122, 255)" data-post-id="{{post.id}}" id="post-card">
-  <!-- Card for each post -->
-  <div class="card-header bg-primary text-light d-flex justify-content-between">
-    <!-- Post header -->
-    <h5>{{post.title}}</h5> {{!-- Displaying the post title --}} 
-    <p class="text-end" id="date">posted by: {{post.user.user_name}} , on: {{post.date}} </p> {{!-- Displaying the username and posting date --}} 
-  </div>
-
-  <div class="card-body">
-    <!-- Post body -->
-    <p class="card-text text-start">{{post.body}}</p> {{!-- Displaying the post body --}} 
-    <h5 class="text-secondary text-start">comments {{post.comments.length}}</h5> {{!-- Displaying the number of comments --}}
-
-
-    <!--Star rating -->
-     {{#if isCreator}}
-    <div class="star-rating" data-rating="{{post.rating}}"></div> {{!-- Display star rating input if user is post creator --}}
-    <p>Rate the Author:</p> <!-- Additional text prompting users to rate the author -->
-    {{/if}}
-
-
-    <!--Comment iteration-->
-    {{#each post.comments as |comment|}} {{!-- Iterate over each comment --}}
-    <div class="accordion" id="accordionExample">
-    <!-- Accordion for each comment -->
-    <div class="accordion-item">
-    <h2 class="accordion-header">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{comment.id}}" aria-expanded="true" aria-controls="collapseOne">
-        comment
-      </button>
-    </h2>
-    <div id="collapse{{comment.id}}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <!-- Comment content -->
-        {{comment.body}} {{!-- Displaying the comment body --}}
-        <p id="comment-user">user# {{comment.user_id}} | {{comment.date}}</p> {{!-- Displaying the user ID and comment date --}}
-      </div> 
-    </div>
-    </div>
-  </div>
-  {{/each}} {{!-- End of comment iteration --}}
-  </div>
-  </div>
+{{> post}}
   {{/each}} <!-- End of post iteration -->
+  </section>
