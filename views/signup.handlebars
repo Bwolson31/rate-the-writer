@@ -1,42 +1,33 @@
-<script id="signup-template" type="text/x-handlebars-template">
-    <!-- Handlebars template for index-->
-    <div class="col d-flex justify-content-center align-items-center" style="height: 65vh;">
-        <!-- Column for centering content vertically -->
-        <div class="card w-45">
-            <!-- Card container -->
-            <div class="card-header bg-primary text-light">
-                <!-- Conditional text for header -->
-                {{#if signupMode}}
+
+<div class="container-fluid text-center">
+    <div class="row align-items-start">
+        <div class="col justify-content-center align-items-center" style="height: 65vh;">
+            <div class="card w-45">
+                <div class="card-header bg-primary text-light">
                     Sign Up!
-                {{else}}
-                    Log In!
-                {{/if}}
-            </div>
-            <div class="card-body">
-                <form>
-                    <!-- Input field for username -->
-                    <div class="mb-3">
-                        <label for="usernameInput2" class="form-label">Username</label>
-                        <!-- Value for username -->
-                        <input type="text" class="form-control" id="username-signup" aria-describedby="usernameHelp" value="{{username}}">
-                    </div>
-                    <!-- Input field for password -->
-                    <div class="mb-3">
-                        <label for="passwordInput2" class="form-label">Password</label>
-                        <!-- Value for password -->
-                        <input type="password" class="form-control" id="password-signup" value="{{password}}">
-                    </div>
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary" id="submit-signup">
-                        <!-- Conditional text for submit button -->
-                        {{#if signupMode}}
-                            Submit
-                        {{else}}
-                            Log In
-                        {{/if}}
-                    </button>
-                </form>
+                </div>
+                <div class="card-body">
+                    <form action="/signup" method="POST">
+                     <!-- Input field for email -->
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email-signup" name="email" aria-describedby="emailHelp">
+                        </div>
+                        <!-- Input field for username -->
+                        <div class="mb-3">
+                            <label for="usernameInput2" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username-signup" name="username" aria-describedby="usernameHelp">
+                        </div>
+                        <!-- Input field for password -->
+                        <div class="mb-3">
+                            <label for="passwordInput2" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password-signup" name="password">
+                        </div>
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary" id="submit-signup">Submit</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</script>
+</div>

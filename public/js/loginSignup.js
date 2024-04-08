@@ -1,22 +1,11 @@
-const loginUsername = document.getElementById('username-login').value.trim();
-const loginPassword = document.getElementById('password-login').value.trim();
-const loginBtn = document.getElementById('submit-logic');
-//above id names have been pulled from login.handlebars
-
-const signupUsername = document.getElementById('username-signup').value.trim();
-const signupPassword = document.getElementById('password-signup').value.trim();
-const signupBtn = document.getElementById('submit-signup');
-//above id names have been pulled from signup.handlebars
-
-const logoutBtn = document.getElementById('');
-//above hasn't yet been connected
-
 
 const loginForm = async (event) => {
     event.preventDefault();
-    //Below might be '../controllers/authController.js' As in, it might need two dots
+    const loginUsername = document.getElementById('username-login').value.trim();
+    const loginPassword = document.getElementById('password-login').value.trim();
+
     if (loginUsername && loginPassword) {
-        const response = await fetch('./controllers/authController.js', {
+        const response = await fetch('/login', {
             method: 'POST',
             body: JSON.stringify({ loginUsername, loginPassword }),
             headers: { 'Content-Type': 'application/json' },
@@ -30,12 +19,13 @@ const loginForm = async (event) => {
     }
 };
 
-
-
 const signupForm = async (event) => {
     event.preventDefault();
+    const signupUsername = document.getElementById('username-signup').value.trim();
+    const signupPassword = document.getElementById('password-signup').value.trim();
+
     if (signupUsername && signupPassword) {
-        const response = await fetch('./controllers/authController.js', {
+        const response = await fetch('/signup', {
             method: 'POST',
             body: JSON.stringify({ signupUsername, signupPassword }),
             headers: { 'Content-Type': 'application/json' },
@@ -50,7 +40,7 @@ const signupForm = async (event) => {
 };
 
 const logout = async () => {
-    const response = await fetch('./controllers/authController.js', {
+    const response = await fetch('/logout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
     });
@@ -62,14 +52,18 @@ const logout = async () => {
     }
 };
 
-// document
-//   .querySelector('.login-form')
-//   .addEventListener('submit', loginForm);
+document.addEventListener('DOMContentLoaded', () => {
+    const loginBtn = document.getElementById('submit-login');
+    const signupBtn = document.getElementById('submit-signup');
+    const logoutBtn = document.getElementById('logout');
 
-// document
-//   .querySelector('.signup-form')
-//   .addEventListener('submit', signupForm);
-
-signupBtn.addEventListener('click', signupForm);
-loginBtn.addEventListener('click', loginForm);
-logoutBtn.addEventListener('click', logout);
+    if (loginBtn) {
+        loginBtn.addEventListener('click', loginForm);
+    }
+    if (signupBtn) {
+        signupBtn.addEventListener('click', signupForm);
+    }
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', logout);
+    }
+});

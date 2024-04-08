@@ -4,7 +4,7 @@ const routes = require('./routes');
 const { engine } = require('express-handlebars');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const userroute = require('./routes/authRoutes');
+const indexRoutes = require('./routes'); 
 (session.Store);
 
 
@@ -29,7 +29,7 @@ const sess = {
 
 app.engine('handlebars', engine({ defaultLayout: 'index' }));
 app.set('view engine', 'handlebars');
-app.use('/users', userroute);
+app.use('/users', indexRoutes);
 
 app.use(session(sess));
 
