@@ -1,5 +1,7 @@
 const { User } = require('../models');
 // Controller function to render the login/signup page
+const bcrypt = require('bcrypt');
+
 
 const renderLoginPage = (req, res) => {
     res.render('login'); 
@@ -12,29 +14,39 @@ const renderSignupPage = (req, res) => {
 
 // Controller function to handle login form submission
 const loginUser = async (req, res) => {
-    const { loginUsername, loginPassword } = req.body; 
-    console.log('Received username:', loginUsername);
-    console.log('Received password:', loginPassword);
+    const { loginUsername, loginPassword } = req.body;
+
     try {
-       const user = await User.findOne({ where: { username: loginUsername } }); // Use 'username' for the where condition
- 
-       if (!user || !user.checkpassword(loginPassword)) { // Ensure password check is correct
-          req.session.logged_in = true;
-          req.session.username = loginUsername;
- 
-          // Redirect to the homepage or authorized page
-          req.session.user_id = user.id;
-          res.redirect('/homepage');
-       } else {
-          // Handle incorrect credentials
-          res.render('login', { error: 'Invalid username or password' });
-       }
+        const user = await User.findOne({ where: { username: loginUsername } });
+
+        if (user) {
+            // Compare the entered password with the hashed password from the database
+            const isPasswordCorrect = await bcrypt.compare(loginPassword, user.password);
+
+            if (isPasswordCorrect) {
+                // Authentication successful
+                req.session.logged_in = true;
+                req.session.username = user.username;
+                req.session.user_id = user.id;
+                return res.redirect('/homepage');
+            } else {
+                // Incorrect password
+                console.log('Invalid password');
+                return res.render('login', { error: 'Invalid username or password' });
+            }
+        } else {
+            // User not found
+            console.log('User not found');
+            return res.render('login', { error: 'Invalid username or password' });
+        }
     } catch (error) {
-       // Handle server errors
-       console.error('Error logging in:', error);
-       res.status(500).send('Internal Server Error');
+        // Handle errors
+        console.error('Error logging in:', error);
+        res.status(500).send('Internal Server Error');
     }
- };
+};
+
+
 
 // Controller function to handle signup form submission
 const signupUser = async (req, res) => {
@@ -71,6 +83,26 @@ const logoutUser = async (req, res) => {
     req.session.destroy(); 
     res.redirect('/login'); 
 };
+
+
+
+// Controller function to retrieve and log hashed passwords
+const retrieveHashedPasswords = async () => {
+    try {
+        // Retrieve all users from the database
+        const users = await User.findAll();
+
+        // Log the hashed passwords for each user
+        users.forEach(user => {
+            console.log(`Username: ${user.username}, Hashed Password: ${user.password}`);
+        });
+    } catch (error) {
+        console.error('Error retrieving hashed passwords:', error);
+    }
+};
+
+// Call the function to retrieve and log hashed passwords
+retrieveHashedPasswords();
 
 module.exports = {
     renderLoginPage,

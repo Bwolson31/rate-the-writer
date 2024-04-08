@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 
 
 const sess = {
-  secret: 'hash here?',
+  secret: 'SjLYkJALxRfvJJzhJihhFkGuOOHscjZC',
   cookie: {
     httpOnly: true,
     secure: false,

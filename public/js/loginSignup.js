@@ -66,5 +66,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (logoutBtn) {
         logoutBtn.addEventListener('click', logout);
     }
-});
+     // Select all "Show Password" buttons using class name
+     const showPasswordButtons = document.querySelectorAll('.show-password-btn');
+
+     // Iterate over each button and attach click event listener
+     showPasswordButtons.forEach(button => {
+         button.addEventListener('click', function() {
+             // Find the associated password field relative to the button
+             const passwordField = this.previousElementSibling;
+             if (passwordField.type === "password") {
+                 passwordField.type = "text";
+                 this.textContent = "Hide Password";
+             } else {
+                 passwordField.type = "password";
+                 this.textContent = "Show Password";
+             }
+         });
+     });
+ });
+ 
+
 
