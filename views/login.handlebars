@@ -1,34 +1,48 @@
-
-
-<div class="container-fluid text-center">
-    <div class="row align-items-start">
-        <div class="col justify-content-center align-items-center">
-            <div class="card w-45">
-                <div class="card-header bg-primary">
-                    Login Here!
-                </div>
-                <div class="card-body">
-                    <form>
-                        <!-- Input field for username -->
-                        <div class="mb-4">
-                            <label for="usernameInput1" class="form-label">Username</label>
-                            <!-- Dynamic value for username -->
-                            <input type="text" class="form-control" id="username-login" aria-describedby="usernameHelp"
-                                value="{{username}}">
-                        </div>
-                        <!-- Input field for password -->
-                        <div class="mb-3">
-                            <label for="passwordInput1" class="form-label">Password</label>
-                            <!-- Dynamic value for password -->
-                            <input type="password" class="form-control" id="password-login" value="{{password}}">
-                        </div>
-                        <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary" id="submit-login">Login</button>
-                    </form>
-                    <!-- Sign-up link -->
-                    <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary">
+                        Login Here!
+                    </div>
+                    <div class="card-body">
+                        <form action="/login" method="POST"> <!-- Specify action and method -->
+                            <!-- Input field for username -->
+                            <div class="mb-4">
+                                <label for="usernameInput1" class="form-label">Username</label>
+                                <!-- Add name attribute for username -->
+                                <input type="text" class="form-control" id="username-login" name="loginUsername" aria-describedby="usernameHelp"
+                                    value="{{username}}">
+                            </div>
+                            <!-- Input field for password -->
+                            <div class="mb-3">
+                                <label for="passwordInput1" class="form-label">Password</label>
+                                <!-- Add name attribute for password -->
+                                <input type="password" class="form-control" id="password-login" name="loginPassword" value="{{password}}">
+                                 <button type="button" class="show-password-btn">Show Password</button><br><br>
+                            </div>
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary" id="submit-login">Login</button>
+                        </form>
+                        <!-- Sign-up link -->
+                        <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <script src="script.js"></script>
+</body>
+</html>

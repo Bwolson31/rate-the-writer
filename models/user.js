@@ -39,10 +39,12 @@ User.init(
   {
     hooks: {
       async beforeCreate(newdatauser) {
+        console.log('hashing password:', newdatauser.password);
         newdatauser.password = await bcrypt.hash(newdatauser.password, 10);
         return newdatauser;
       },
       async beforeUpdate(updateduserdata) {
+        console.log('Salt rounds for hashing:', 10); 
         updateduserdata.password = await bcrypt.hash(updateduserdata.password, 10);
         return updateduserdata;
       },
