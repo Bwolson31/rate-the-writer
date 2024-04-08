@@ -7,7 +7,7 @@ const authRoutes = require('./authRoutes');
 const withAuth = require('../utils/auth'); 
 // Possibly add more route imports here 
 
-router.get('/',withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     // Fetch all posts from the database
     const posts = await Post.findAll();
@@ -27,7 +27,7 @@ router.get('/login', async (req, res) => {
     // Fetch all posts from the database
     const posts = await Post.findAll();
     // Pass the fetched posts data to the template
-    res.render('login', {loggedIn:true}); 
+    res.render('login', { loggedIn:true}); 
   } catch (error) {
     // Handle errors
     console.error('Error fetching posts:', error);
@@ -47,7 +47,7 @@ router.post('/login', async (req, res) => {
       req.session.username = username;
 
       // Redirect to the homepage or authorized page
-      req.session.userId = user.id;
+      req.session.user_id = user.id;
       res.redirect('/homepage');
     } else {
       // Handle incorrect credentials
