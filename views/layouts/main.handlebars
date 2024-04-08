@@ -14,15 +14,15 @@
     <h1>Welcome to Rate The Writer</h1>
   </header>
   <nav>
-    {{!-- <a href="/">Home</a>
+    <a href="/">Home</a>
     {{#if loggedIn}}
-    <form action="/logout" method="POST">
+  
       <button type="submit" id="logout-btn" class="btn-no-style">Logout</button>
-    </form>
+  
     {{else}}
     <a href="login">Login</a>
     <a href="signup">Sign Up</a>
-    {{/if}} --}}
+    {{/if}}
     {{!-- Brian: I don't think we want the nav bar here ... I think we'll want it in homepage--}}
   </nav>
   <main>
@@ -32,7 +32,9 @@
   <footer>
   </footer>
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="/js/loginSignup.js"></script> 
+   {{#if loggedIn}}
+<script src="/js/logout.js"></script>
+{{/if}}
 </body>
 
 

@@ -7,7 +7,7 @@
                     Sign Up!
                 </div>
                 <div class="card-body">
-                    <form action="/signup" method="POST">
+                    <form id="submit-signup">
                      <!-- Input field for email -->
                         <div class="mb-3">
                             <label for="emailInput" class="form-label">Email</label>
@@ -24,10 +24,12 @@
                             <input type="password" class="form-control" id="password-signup" name="password">
                         </div>
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary" id="submit-signup">Submit</button>
+                        <button type="submit" class="btn btn-primary" >Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script src="/js/signup.js"></script>
