@@ -56,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginBtn = document.getElementById('submit-login');
     const signupBtn = document.getElementById('submit-signup');
     const logoutBtn = document.getElementById('logout');
-
     if (loginBtn) {
         loginBtn.addEventListener('click', loginForm);
     }
@@ -67,3 +66,4 @@ document.addEventListener('DOMContentLoaded', () => {
         logoutBtn.addEventListener('click', logout);
     }
 });
+
