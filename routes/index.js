@@ -38,6 +38,7 @@ router.post('/signup', signupUser);
 
 // Route for handling logout 
 router.get('/logout', logoutUser);
+router.post('/logout', logoutUser); 
 
 router.get('/homepage', (req, res) => {
   res.render('homepage'); // Render the homepage template

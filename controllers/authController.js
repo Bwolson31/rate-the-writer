@@ -12,7 +12,7 @@ const renderSignupPage = (req, res) => {
 
 // Controller function to handle login form submission
 const loginUser = async (req, res) => {
-    const { loginUsername, loginPassword } = req.body; // Change 'email' to 'username'
+    const { loginUsername, loginPassword } = req.body; 
     console.log('Received username:', loginUsername);
     console.log('Received password:', loginPassword);
     try {
@@ -66,7 +66,7 @@ const signupUser = async (req, res) => {
     }
 };
 
-// Controller function to handle logout (example)
+// Controller function to handle logout
 const logoutUser = async (req, res) => {
     req.session.destroy(); 
     res.redirect('/login'); 
