@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { Post } = require('../models');
+const { Post, User } = require('../models');
+const bcrypt = require('bcrypt');
 
 // Import individual route files
 const authRoutes = require('./authRoutes');
@@ -23,6 +24,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/login', async (req, res) => {
   try {
+    console.log('Rendering login page');
 
     // Fetch all posts from the database
     const posts = await Post.findAll();
@@ -40,7 +42,7 @@ router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
   try {
-    const user = await User.findOne({ where: { email } });
+    const user = await User.findOne({ where: { username } });
 
     if (!user || !user.isValidPassword(password)) {
       req.session.logged_in = true;
@@ -56,6 +58,34 @@ router.post('/login', async (req, res) => {
   } catch (error) {
     // Handle server errors
     console.error('Error logging in:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.get('/signup', (req, res) => {
+  res.render('signup');
+});
+
+router.post('/signup', async (req, res) => {
+  const { username, email, password } = req.body;
+
+  try {
+    // Check if the username or email already exists
+    const existingUser = await User.findOne({ where: { email } });
+    if (existingUser) {
+      return res.render('signup', { error: 'Email already exists' });
+    }
+
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Create the new user
+    const newUser = await User.create({ username, email, password: hashedPassword });
+
+    // Redirect to login page after successful signup
+    res.redirect('/login');
+  } catch (error) {
+    console.error('Error signing up:', error);
     res.status(500).send('Internal Server Error');
   }
 });
