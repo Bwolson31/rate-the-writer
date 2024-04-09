@@ -4,7 +4,7 @@ const { Post, User } = require('../models');
 const withAuth = require('../utils/auth'); 
 // Possibly add more route imports here 
 
-router.get('/', withAuth, async (req, res) => {
+router.get(['/', '/homepage'], withAuth, async (req, res) => {
   try {
     // Fetch all posts from the database
     const posts = await Post.findAll();
