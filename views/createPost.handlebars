@@ -1,0 +1,31 @@
+<div class="container-fluid text-center">
+    <div class="row align-items-start">
+        <div class="col justify-content-center align-items-center" style="height: 65vh;">
+            <div class="card w-45">
+                <div class="card-header bg-primary text-light">
+
+                    Add a post!
+                </div>
+                <div class="card-body">
+                    <form id="new-post">
+                     <!-- Input field for email -->
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" >
+                        </div>
+                        <!-- Input field for username -->
+                        <div class="mb-3">
+                            <label for="content" class="form-label">Content</label>
+                            <textarea name="content" id="content" ></textarea>
+                        </div>
+                       
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary" >Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/createPost.js"></script>

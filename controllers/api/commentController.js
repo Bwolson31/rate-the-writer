@@ -1,5 +1,5 @@
 // Import necessary modules and models
-const { Post, Comment } = require('../models');
+const { Post, Comment } = require('../../models');
 
 
 // Controller function to create a new comment for a post
