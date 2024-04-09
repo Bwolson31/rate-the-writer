@@ -8,22 +8,23 @@
                     Login Here!
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form class = "form login-form">
                         <!-- Input field for username -->
-                        <div class="mb-4">
-                            <label for="usernameInput1" class="form-label">Username</label>
+                        <div class="form-group">
+                            <label for="usernameInput1">Username</label>
                             <!-- Dynamic value for username -->
-                            <input type="text" class="form-control" id="username-login" aria-describedby="usernameHelp"
-                                value="{{username}}">
+                            <input class="form-input" type="text" id="username-login">
                         </div>
                         <!-- Input field for password -->
-                        <div class="mb-3">
-                            <label for="passwordInput1" class="form-label">Password</label>
+                        <div class="form-group">
+                            <label for="passwordInput1">Password</label>
                             <!-- Dynamic value for password -->
-                            <input type="password" class="form-control" id="password-login" value="{{password}}">
+                            <input class="form-input" class="form-control" id="password-login">
                         </div>
-                        <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary" id="submit-login">Login</button>
+                        <div class="form-group">
+                         <!-- Submit button -->
+                        <button class="btn btn-primary" type="submit">Login</button>
+                        </div>
                     </form>
                     <!-- Sign-up link -->
                     <p>Don't have an account? <a href="/signup">Sign Up</a></p>
