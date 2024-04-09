@@ -11,8 +11,8 @@ const renderSignupPage = (req, res) => {
 
 // Controller function to handle login form submission
 const loginUser = async (req, res) => {
-   const { email, password } = req.body;
-   const user = await User.findOne( { email, password });
+   const { username, password } = req.body;
+   const user = await User.findOne( { username, password });
 
 if (user) {
     req.session.user_id = user.id;
@@ -25,7 +25,7 @@ if (user) {
 
 // Controller function to handle signup form submission
 const signupUser = async (req, res) => {
-    const { name, email, password } = req.body;
+    const { username, email, password } = req.body;
 
 try {
     // Check if the email is already registered
@@ -37,7 +37,7 @@ try {
     }
 
     // Create a new user record in the database
-    await User.create({ name, email, password });
+    await User.create({ username, email, password });
 
     // Redirect the user to the login page after successful signup
     res.redirect('/login');
