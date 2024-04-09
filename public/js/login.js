@@ -1,10 +1,10 @@
 
-const loginForm = async (event) => {
+const loginFormHandler = async (event) => {
     event.preventDefault();
     const username = document.getElementById('username-login').value.trim();
     const password = document.getElementById('password-login').value.trim();
 
-    if (loginUsername && loginPassword) {
+    if (username && password) {
         const response = await fetch('/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
@@ -23,9 +23,8 @@ const loginForm = async (event) => {
 
 
 
-const loginBtn = document.getElementById('submit-login');
-
-
-loginBtn.addEventListener('click', loginForm);
+document
+  .querySelector('.login-form')
+  .addEventListener('submit', loginFormHandler);
 
 
