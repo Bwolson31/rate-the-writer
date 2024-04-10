@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const { Post, User } = require('../models');
+const bcrypt = require('bcrypt');
 const fs = require('fs');
 
 const withAuth = require('../utils/auth'); 
 // Possibly add more route imports here 
+
 
 router.get('/', withAuth, async (req, res) => {
   try {
@@ -19,7 +21,7 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/login', withAuth, async (req, res) => {
+router.get('/login', async (req, res) => {
   try {
 
     // Pass the fetched posts data to the template
@@ -40,7 +42,7 @@ router.post('/signup', async (req, res) => {
   try {
     // Hash the password using bcrypt
     //const hashedPassword = await bcrypt.hash(req.body.password, 10);
-
+    
     // Create a new user instance with the form data
     const newUser = await User.create({
       username: req.body.username,
@@ -64,17 +66,16 @@ router.post('/signup', async (req, res) => {
           } else {
             res.redirect('/login');
           }
-        })
+        });
       }
-    })
-    // If user creation is successful, you can redirect or render a success message
-    res.redirect('/login');
+    });
   } catch (err) {
     // Handle any errors that occur
     console.error(err);
     res.status(500).send('Error creating user');
   }
 });
+
 
 
 // // Login route
