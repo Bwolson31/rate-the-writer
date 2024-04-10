@@ -11,12 +11,12 @@ const renderSignupPage = (req, res) => {
 
 // Controller function to handle login form submission
 const loginUser = async (req, res) => {
-   const { username, password } = req.body;
-   const user = await User.findOne( { username, password });
-
+   const { email, password } = req.body;
+   const user = await User.findOne( { email, password });
+console.log('user', user);
 if (user) {
     req.session.user_id = user.id;
-    res.redirect('/homepage'); 
+    res.render('/homepage'); 
 } else {
     res.render('login', {error: 'Invalid email or password'})
 }

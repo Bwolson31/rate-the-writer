@@ -1,0 +1,26 @@
+<div>
+<h1>{{authors.name}}</h1>
+
+</div>
+
+<div>
+    <h2>want to add a comment about this author</h2>
+    <form id="author-form">
+        <input type="hidden" id="author_id" value="{{authors.id}}">
+        <input type="text" id="authorComment">
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+{{#if authors.AuthorComments}}
+    {{#each authors.AuthorComments }}
+{{!-- create how you want each comment to display --}}
+<div>
+    <p>{{content}}</p>
+    <p>{{user.username}}</p>
+</div>
+    {{/each}}
+{{/if}}
+
+<script src="/js/authorComment.js"></script>

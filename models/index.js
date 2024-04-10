@@ -1,6 +1,8 @@
 const User = require('./user');
 const Post = require('./post');
 const Comment = require('./comment');
+const Author = require('./author')
+const AuthorComment = require('./authorComment')
 
 // User.hasMany(Post, {
 //   foreignKey: 'user_id',
@@ -27,6 +29,15 @@ Post.hasMany(Comment, {
 //   foreignKey: 'post_id'
 // });
 
+Author.hasMany(AuthorComment, {
+  foreignKey: 'author_id'
+})
+
+AuthorComment.belongsTo(User, {
+  foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+})
+
 //Above: relationships go both ways, not just one direction
 
-module.exports = { User, Post, Comment };
+module.exports = { User, Post, Comment, Author, AuthorComment };
