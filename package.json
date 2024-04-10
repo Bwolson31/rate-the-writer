@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "seeds": "node seeds.js"
+    "seeds": "node seeds/seeds.js"
   },
   "name": "rate-the-writer",
   "description": "",

@@ -3,9 +3,11 @@
     </aside>
     <section class="gallery">
 
-{{#each posts as |post|}}
+{{#each authors as |post|}}
 <!-- Iterate over each post -->
-{{> post}}
+<div>
+  <a href="/author/{{post.id}}">{{post.name}}</a>
+</div>
   {{/each}} <!-- End of post iteration -->
   </section>
 

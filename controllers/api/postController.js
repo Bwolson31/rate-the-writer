@@ -2,11 +2,11 @@
 const { Post } = require('../../models');
 const router = require('express').Router()
 
-router.post('/', async (req, res)=> {
-        try {
+router.post('/', async (req, res) => {
+    try {
         // Extract title and content from request body
-        const {  title, content } = req.body;
-console.log(req.session.user_id);
+        const { title, content } = req.body;
+        console.log(req.session.user_id);
         // Create a new post instance using the Post model
         const newPost = await Post.create({
             title,

@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
-const bcrypt = require('bcrypt');
-//const fs = require('fs');
+const { Post, User, Author, AuthorComment } = require('../models');
+// const bcrypt = require('bcrypt');
+// //const fs = require('fs');
 
 const withAuth = require('../utils/auth'); 
 // Possibly add more route imports here 
@@ -10,16 +10,43 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, async (req, res) => {
   try {
     // Fetch all posts from the database
-    const posts = await Post.findAll();
+    const authorData = await Author.findAll();
+
+    // serialize the postData to be displayed as an array of plain objects
+    const authors = authorData.map((post)=> post.get({plain: true}))
 
     // Pass the fetched posts data to the template
-    res.render('homepage', { posts, loggedIn:req.session.logged_in }); 
+    res.render('homepage', { authors, loggedIn:req.session.logged_in }); 
   } catch (error) {
     // Handle errors
     console.error('Error fetching posts:', error);
     res.status(500).send('Internal Server Error');
   }
 });
+
+router.get('/author/:id', async (req, res)=>{
+  try {
+    // Fetch all posts from the database
+    const authorData = await Author.findByPk(req.params.id, {
+      include: [{
+        model: AuthorComment,
+        include: [User]
+      }]
+    });
+
+    // serialize the postData to be displayed as an array of plain objects
+    const authors = authorData.get({plain: true})
+
+    console.log(authors);
+
+    // Pass the fetched posts data to the template
+    res.render('authors', { authors, loggedIn:req.session.logged_in }); 
+  } catch (error) {
+    // Handle errors
+    console.error('Error fetching posts:', error);
+    res.status(500).send('Internal Server Error');
+  }
+})
 
 router.get('/login', async (req, res) => {
   try {
