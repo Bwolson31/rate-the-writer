@@ -12,6 +12,7 @@ function savePost(event) {
             content
         })
     });
+    console.log(response)
 
     if (response.ok) {
         document.location.replace('/');

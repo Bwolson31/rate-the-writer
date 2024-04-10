@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Post, User } = require('../models');
 const bcrypt = require('bcrypt');
-const fs = require('fs');
+//const fs = require('fs');
 
 const withAuth = require('../utils/auth'); 
 // Possibly add more route imports here 
@@ -37,44 +37,49 @@ router.get('/new', (req, res)=> {
   res.render('createPost')
 })
 
-
-router.post('/signup', async (req, res) => {
-  try {
-    // Hash the password using bcrypt
-    //const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    
-    // Create a new user instance with the form data
-    const newUser = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
-      //change above to hashedPassword
-      // Include any other user fields you have
-    });
-
-    fs.readFile('userdata.json', 'utf8', (err, data) => {
-      if (err) {
-        console.log(err);
-        res.status(500).send('Error saving user data');
-      } else {
-        const userData = JSON.parse(data);
-        userData.push(newUser);
-        fs.writeFile('userdata.json', JSON.stringify(userData), (err) => {
-          if (err) {
-            console.error(err);
-            res.status(500).send('Error saving user data');
-          } else {
-            res.redirect('/login');
-          }
-        });
-      }
-    });
-  } catch (err) {
-    // Handle any errors that occur
-    console.error(err);
-    res.status(500).send('Error creating user');
-  }
+router.get('/signup', (req, res) => {
+  res.render('signup');
 });
+
+module.exports = router
+
+// router.post('/signup', async (req, res) => {
+//   try {
+//     // Hash the password using bcrypt
+//     //const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    
+//     // Create a new user instance with the form data
+//     const newUser = await User.create({
+//       username: req.body.username,
+//       email: req.body.email,
+//       password: req.body.password,
+//       //change above to hashedPassword
+//       // Include any other user fields you have
+//     });
+
+//     fs.readFile('userdata.json', 'utf8', (err, data) => {
+//       if (err) {
+//         console.log(err);
+//         res.status(500).send('Error saving user data');
+//       } else {
+//         const userData = JSON.parse(data);
+//         userData.push(newUser);
+//         fs.writeFile('userdata.json', JSON.stringify(userData), (err) => {
+//           if (err) {
+//             console.error(err);
+//             res.status(500).send('Error saving user data');
+//           } else {
+//             res.redirect('/login');
+//           }
+//         });
+//       }
+//     });
+//   } catch (err) {
+//     // Handle any errors that occur
+//     console.error(err);
+//     res.status(500).send('Error creating user');
+//   }
+// });
 
 
 
@@ -102,9 +107,3 @@ router.post('/signup', async (req, res) => {
 //     res.status(500).send('Internal Server Error');
 //   }
 // });
-
-router.get('/signup', (req, res) => {
-  res.render('signup');
-});
-
-module.exports = router

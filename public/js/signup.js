@@ -16,7 +16,7 @@ const signupForm = async (event) => {
         console.log(response);
 
         if (response.ok) {
-            document.location.replace('/homepage');
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }
@@ -24,4 +24,4 @@ const signupForm = async (event) => {
 };
 
 
-signupBtn.addEventListener('click', signupForm);
+signupBtn.addEventListener('submit', signupForm);

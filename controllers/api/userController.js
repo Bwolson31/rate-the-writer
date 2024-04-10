@@ -13,7 +13,7 @@ console.log(userData);
       return;
     }
 console.log(req.body);
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = await userData.checkpassword(req.body.password);
 console.log('valid password');
     if (!validPassword) {
       res
