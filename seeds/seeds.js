@@ -24,15 +24,15 @@ const seedDataBase = async () => {
   );
 
   for (const comment of commentData) {
-    const postings = posts[Math.floor(Math.random() * posts.length)];
+    const posting = posts[Math.floor(Math.random() * posts.length)];
     await Comment.create({
       ...comment,
-      postid: postings.id,
+      post_id: posting.id, // Corrected the property name to post_id
       user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
 
-  process.exit(0);
+  console.log('\n----- DATABASE SEEDED -----\n');
 };
 
-seedDataBase();
+seedDataBase().catch(console.error);
