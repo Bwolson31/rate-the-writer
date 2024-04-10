@@ -48,6 +48,9 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
+    // Log the validation errors to diagnose the issue
+    console.error('Validation errors:', err);
+
     res.status(400).json(err);
   }
 });
