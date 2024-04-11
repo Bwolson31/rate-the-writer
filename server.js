@@ -19,7 +19,7 @@ const sess = {
   cookie: {
     maxAge: 3600000,
     httpOnly: true,
-    secure: false,
+    secure: true,
     sameSite: 'strict',
   },
   resave: false,
