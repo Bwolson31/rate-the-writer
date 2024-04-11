@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
+
 // const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
@@ -14,6 +15,8 @@ const PORT = process.env.PORT || 3001;
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({  });
 
+// Added for CSS to work
+app.use(express.static(__dirname + '/public'));
 const sess = {
   secret: 'Super secret secret',
   cookie: {
