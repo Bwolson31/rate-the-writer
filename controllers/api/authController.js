@@ -50,17 +50,18 @@ try {
 
 
 // Controller function to handle logout (example)
-const logoutUser = async (req, res) => {
-    req.session.destroy(); 
-    res.redirect('/login'); 
-};
+
+// const logoutUser = async (req, res) => {
+//     req.session.destroy(); 
+//     res.redirect('/login'); 
+// };
 
 module.exports = {
     renderLoginPage,
     renderSignupPage,
     loginUser,
     signupUser,
-    logoutUser
+    //logoutUser
 };
 
 
