@@ -1,51 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Styled Content with Centered Author Boxes</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <!-- External CSS -->
-    <link rel="stylesheet" href="/css/homeStyle.css">
-</head>
-<body>
-    <div class="center-container">
-        <div class="container">
-            <div class="row">
-                {{#each authors as |author|}}
-                <div class="col-lg-3 col-md-4 col-sm-6 author-card">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title author-name">{{author.name}}</h5>
-                            <a href="/author/{{author.id}}" class="btn btn-primary btn-view-profile">View Comments</a>
-                        </div>
-                    </div>
-                </div>
-                {{/each}}
-            </div>
-        </div>
-    </div>
+<header class="text-center bg-primary text-light">
+  <h1>Rate The Writer</h1>
+</header>
+<aside>
+  <h2>Check out the current feed!</h2>
+</aside>
+<section class="gallery">
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+  {{#each authors as |post|}}
+  <!-- Iterate over each post -->
+  <div>
+    <a href="/author/{{post.id}}" class="">{{post.name}}</a>
+  </div>
+  {{/each}} <!-- End of post iteration -->
+</section>
 
-
-
-
-
-
-
-
-  <!-- Logout button -->
+<!-- Logout button -->
 {{!-- <form action="/logout" method="POST" class="logout-form">
   <button type="submit" class="btn btn-primary">Logout</button>
 </form> --}}
