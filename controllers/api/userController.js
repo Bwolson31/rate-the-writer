@@ -12,7 +12,7 @@ console.log(userData);
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
-console.log(req.body);
+//console.log(req.body);
     const validPassword = await userData.checkpassword(req.body.password);
 console.log('valid password');
     if (!validPassword) {
@@ -30,7 +30,7 @@ console.log('valid password');
     });
 
   } catch (err) {
-    console.log('this is here');
+    //console.log('this is here');
     res.status(400).json(err);
   }
 });
@@ -38,9 +38,9 @@ console.log('valid password');
 
 router.post('/', async (req, res) => {
   try {
-    console.log('anything');
+    //console.log('anything');
     const userData = await User.create(req.body);
-    console.log('userData', userData)
+    //console.log('userData', userData)
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -49,7 +49,7 @@ router.post('/', async (req, res) => {
     });
   } catch (err) {
     // Log the validation errors to diagnose the issue
-    console.error('Validation errors:', err);
+    //console.error('Validation errors:', err);
 
     res.status(400).json(err);
   }

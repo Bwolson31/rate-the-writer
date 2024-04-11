@@ -1,20 +1,20 @@
 <header class="text-center bg-primary text-light">
-    <h1>Rate The Writer</h1>
-  </header>
-    <aside>
-      <h2>Check out the current feed!</h2>
-    </aside>
-    <section class="gallery">
+  <h1>Rate The Writer</h1>
+</header>
+<aside>
+  <h2>Check out the current feed!</h2>
+</aside>
+<section class="gallery">
 
-{{#each authors as |post|}}
-<!-- Iterate over each post -->
-<div>
-  <a href="/author/{{post.id}}">{{post.name}}</a>
-</div>
+  {{#each authors as |post|}}
+  <!-- Iterate over each post -->
+  <div>
+    <a href="/author/{{post.id}}" class="">{{post.name}}</a>
+  </div>
   {{/each}} <!-- End of post iteration -->
-  </section>
+</section>
 
-  <!-- Logout button -->
+<!-- Logout button -->
 {{!-- <form action="/logout" method="POST" class="logout-form">
   <button type="submit" class="btn btn-primary">Logout</button>
 </form> --}}
