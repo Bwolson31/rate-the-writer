@@ -1,3 +1,4 @@
+-- Active: 1710292881115@@127.0.0.1@3306@rate_the_writer_db
 DROP DATABASE IF EXISTS rate_the_writer_db;
 CREATE DATABASE rate_the_writer_db;
 USE rate_the_writer_db;

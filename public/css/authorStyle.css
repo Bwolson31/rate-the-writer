@@ -1,0 +1,47 @@
+/* Author styles */
+body {
+    background-color: #a3c9d8; 
+    font-family: 'Playfair Display', serif; /* Applying Google Font */
+    padding-top: 80px; /* Added padding-top to compensate for the fixed header height */
+  }
+  
+  h1, h2 {
+    text-align: center;
+    margin-top: 20px; 
+  }
+  
+  form {
+    text-align: center;
+    margin-top: 20px; 
+  }
+  
+  input[type="text"] {
+    width: 300px;
+    padding: 8px;
+    margin-right: 10px;
+  }
+  
+  button[type="submit"] {
+    background-color: #007bff; 
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+  }
+  
+  .comment-container {
+    text-align: center;
+    margin-top: 20px; 
+  }
+  
+  .comment-container div {
+    background-color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  
