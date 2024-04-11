@@ -3,7 +3,7 @@ const router = require('express').Router()
 
 router.post('/login', async (req, res) => {
   try {
-    console.log('anything');
+    //console.log('anything');
     const userData = await User.findOne({ where: { username: req.body.username } });
 console.log(userData);
     if (!userData) {
