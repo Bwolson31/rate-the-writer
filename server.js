@@ -1,7 +1,49 @@
+const path = require('path');
 const express = require('express');
-const app = express();
-const PORT = 3000; // You can choose any port number
+const session = require('express-session');
+const exphbs = require('express-handlebars');
+const routes = require('./controllers');
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+// const helpers = require('./utils/helpers');
+
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+// Set up Handlebars.js engine with custom helpers
+const hbs = exphbs.create({  });
+
+// Added for CSS to work
+app.use(express.static(__dirname + '/public'));
+const sess = {
+  secret: 'Super secret secret',
+  cookie: {
+    maxAge: 300000,
+    httpOnly: true,
+    secure: true,
+    sameSite: 'strict',
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+};
+
+app.use(session(sess));
+
+// Inform Express.js on which template engine to use
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(routes);
+
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
 });

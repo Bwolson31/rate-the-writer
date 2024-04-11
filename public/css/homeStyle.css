@@ -1,0 +1,25 @@
+/* Homepage styles */
+body {
+    background-color: #a3c9d8; 
+    font-family: 'Playfair Display', serif; /* Applying Google Font */
+}
+
+.author-card {
+    margin-bottom: 20px;
+}
+
+.author-name {
+    text-align: center;
+}
+
+.btn-view-profile {
+    display: block;
+    margin: 0 auto;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
