@@ -38,4 +38,6 @@ const seedDataBase = async () => {
   process.exit(0);
 };
 
-seedDataBase();
+// seedDataBase();
+
+module.exports = seedDataBase;

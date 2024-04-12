@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Author, AuthorComment } = require('../models');
+const { seedDataBase } = require('../seeds/seeds');
 // const bcrypt = require('bcrypt');
 // //const fs = require('fs');
 
@@ -67,6 +68,20 @@ router.get('/new', (req, res)=> {
 router.get('/signup', (req, res) => {
   res.render('signup');
 });
+
+
+
+router.get('/seeds', (req, res) => {
+
+ try {
+  
+  seedDataBase();
+ } catch (error) {
+  console.error( 'error with database:', error );
+  res.status(400).send('Internal Service Error');
+ }
+
+})
 
 module.exports = router
 
