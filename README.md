@@ -21,12 +21,12 @@ LIVE deployed URL: https://rate-the-writer-website-ed969a99c53f.herokuapp.com/
 ##### Credits
 Contributors:
 
-Joanna Morales: https://github.com/fruitxxsnackz
+https://github.com/fruitxxsnackz
 
-Vineysha Olivo: https://github.com/Vineysha
+https://github.com/Vineysha
 
-Brian Olson: https://github.com/Bwolson31
+https://github.com/Bwolson31
 
-Martha Hayes: https://github.com/mhayes0022
+https://github.com/mhayes0022
 
-Joselyn Nuno: https://github.com/Josyyy24
+https://github.com/Josyyy24
