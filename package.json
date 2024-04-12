@@ -6,7 +6,8 @@
     "express": "^4.19.2",
     "express-handlebars": "^7.1.2",
     "express-session": "^1.18.0",
-    "mysql2": "^3.9.4",
+    "mysql2": "^3.9.3",
+    "react-simple-star-rating": "^5.1.7",
     "sequelize": "^6.37.2"
   },
   "scripts": {
