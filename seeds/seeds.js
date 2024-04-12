@@ -35,9 +35,9 @@ const seedDataBase = async () => {
   //   });
   // }
 
-  process.exit(0);
+
 };
 
 // seedDataBase();
 
-module.exports = seedDataBase;
+module.exports = { seedDataBase }
