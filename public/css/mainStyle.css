@@ -1,0 +1,36 @@
+/* Main styles */
+body {
+    background-color: #a3c9d8; 
+    font-family: 'Playfair Display', serif; /* Applying Google Font */
+  }
+  
+  .btn-logout {
+    color: #fff;
+    background-color: #007bff; 
+    border-color: #007bff; 
+    position: fixed; /* Fixed positioning */
+    top: 10px; /* Adjusted top position to avoid overlap with the header */
+    right: 20px; 
+    z-index: 1000; /* Ensure it's above other content */
+  }
+  
+  .btn-logout:hover {
+    color: #fff;
+    background-color: #0056b3; /* Darker blue color on hover */
+    border-color: #0056b3; 
+  }
+  
+  header {
+    text-align: center;
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 10px 0; /* Added padding to the header */
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Fixed at the top */
+    width: 100%; /* Full width */
+    z-index: 999; /* Ensure header stays on top */
+  }
+  
+  main {
+    padding-top: 60px; /* Adjusted padding-top to compensate for the fixed header height */
+  }
+  

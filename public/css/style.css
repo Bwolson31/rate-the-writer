@@ -1,0 +1,67 @@
+/* Signup and Login Styles */
+
+/*Signup styles*/
+body {
+    background-color: #a3c9d8; 
+    font-family: 'Playfair Display', serif; /* Applying Google Font */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full height of the viewport */
+  }
+  
+  .card {
+    max-width: 600px; /* Increased card width */
+    background-color: #fff; 
+  }
+  
+  .card-header {
+    background-color: #007bff; 
+    color: #fff;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .card-body {
+    text-align: center; /* Center content horizontally */
+  }
+  
+  #submit-signup {
+    margin-top: 20px; 
+  }
+  
+  .login-link {
+    margin-top: 10px; 
+  }
+  
+  /* Login Styles */
+  .card {
+    width: 400px; /* Adjusted card width */
+    background-color: #fff; 
+  }
+  
+  .card-header {
+      text-align: center; 
+    background-color: #007bff; 
+    color: #fff;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .card-body {
+    text-align: center; /* Center content horizontally */
+  }
+  
+  #submit-login {
+    margin-top: 20px; 
+  }
+  
+  .login-link {
+    margin-top: 10px; 
+  }
+  
+  
